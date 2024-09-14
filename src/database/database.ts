@@ -78,7 +78,7 @@ export class Database {
     }
 
     // If not, create a new transaction manager and save it in async local storage before running the callback
-    // Transaction manager will be automatically cleaned up async context is destroyed
+    // Transaction manager will be automatically cleaned up when async context is destroyed
     const dataSource = await this.getDataSource();
     const transactionManager = new TransactionManager(dataSource);
     return this.als.run(transactionManager, async () => {
